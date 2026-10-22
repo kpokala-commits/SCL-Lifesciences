@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="A personalised Art of Possible perspective for SCL Lifesciences, exploring connected decisions across manufacturing, CDMO and leadership.">
+<title>SCL Lifesciences × Salesforce | The Art of Possible</title>
+<style>
+  :root{
+    --sf:#0176d3;--sf-strong:#005fb2;--navy:#032d60;--navy-deep:#08264d;
+    --aqua:#d8f6ff;--sky:#e7f6ff;--cream:#fffdfa;--cloud:#f3f9ff;
+    --ice:#e9f5ff;--mint:#e6f8ee;--white:#ffffff;--line:#d8e4ee;
+    --ink:#16315a;--slate:#52647c;--lilac:#eeeafa;
+    --font:"Salesforce Sans",Arial,Helvetica,sans-serif;
+    --display:"ITC Avant Garde Gothic","Avant Garde","Avenir Next","Century Gothic",Arial,sans-serif;
+    --shadow:0 16px 45px rgba(3,45,96,.09)
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font);font-size:16px;line-height:1.52;color:var(--ink);background:white;-webkit-font-smoothing:antialiased}
+  button,input{font:inherit}
+  a{color:var(--sf)}
+  a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--sf);outline-offset:4px}
+  .sr-only{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap}
+  .shell{width:min(1160px,calc(100% - 64px));margin-inline:auto}
+  .eyebrow{font-size:.75rem;line-height:1.35;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--sf)}
+  .display{font-family:var(--display);font-weight:800;letter-spacing:-.047em;color:var(--navy)}
+  section{scroll-margin-top:86px}
+  .topbar{position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid #eaf0f7;z-index:40}
+  .nav{min-height:78px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--navy);text-decoration:none;min-width:0}
+  .brand-name{font-family:var(--display);font-weight:850;font-size:1.13rem;letter-spacing:-.055em}
+  .brand-divider{height:26px;width:1px;background:#bfd1df;margin-inline:6px}
+  .brand-for{font-weight:750;font-size:.86rem;white-space:nowrap;color:#435b77}
+  .brand-cloud{width:47px;height:34px;display:block;position:relative;flex:0 0 auto}
+  .brand-cloud svg{display:block;width:100%;height:100%}
+  .navlinks{display:flex;align-items:center;gap:24px}
+  .navlinks a{text-decoration:none;font-weight:700;font-size:.86rem;color:var(--navy);white-space:nowrap}
+  .navlinks a:hover{color:var(--sf)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 23px;border-radius:999px;font-weight:780;font-size:.95rem;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 7px 19px rgba(3,45,96,.14)}
+  .btn-primary{background:var(--sf);color:white}
+  .btn-primary:hover{background:var(--sf-strong);color:white}
+  .btn-secondary{border-color:var(--navy);color:var(--navy);background:white}
+  .navlinks .navbutton{color:#fff;padding:10px 17px;font-size:.82rem}
+  .hero{overflow:hidden;background:linear-gradient(125deg,#e6f8ff 0%,#e1f3fd 45%,#f4eeff 100%);position:relative}
+  .hero::after{position:absolute;content:"";width:680px;height:680px;border-radius:50%;background:radial-gradient(circle at center,rgba(255,255,255,.42),rgba(255,255,255,0) 62%);right:-260px;top:-260px;pointer-events:none}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center;padding-block:86px 94px}
+  .hero-kicker{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:800;color:#16598a;background:rgba(255,255,255,.72);border:1px solid #bfe5f6;padding:9px 14px;border-radius:50px}
+  .spark{width:8px;height:8px;background:#0a9fda;border-radius:50%}
+  .hero h1{font-size:clamp(2.6rem,4.8vw,4.75rem);line-height:1.13;margin:22px 0 19px;max-width:650px}
+  .hero h1 span{color:var(--sf)}
+  .hero p{max-width:570px;color:#355677;font-size:1.14rem;line-height:1.65;margin:0}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:31px}
+  .hero-small{font-size:.8rem!important;color:#58758b!important;margin-top:17px!important}
+  .decision-visual{background:#fff;border-radius:30px;padding:22px;border:1px solid #dbeaf5;box-shadow:0 27px 65px rgba(3,45,96,.12);position:relative;overflow:hidden}
+  .visual-head{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #e3edf5;padding-bottom:14px}
+  .visual-head strong{font-size:.82rem;color:var(--navy)}
+  .visual-pill{font-size:.67rem;color:#246083;background:#ddf6ff;border-radius:30px;padding:6px 10px;font-weight:750}
+  .visual-question{font-family:var(--display);color:var(--navy);font-size:1.22rem;letter-spacing:-.045em;font-weight:800;line-height:1.33;margin:20px 0 16px}
+  .source-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .source-tile{background:#f2f8fd;border:1px solid #e0edf7;border-radius:15px;padding:12px 9px 10px;text-align:center;min-height:90px}
+  .source-icon{width:28px;height:28px;border-radius:10px;background:#d4edff;margin:0 auto 7px;display:flex;align-items:center;justify-content:center;color:#0673c6;font-weight:800}
+  .source-tile small{font-size:.7rem;display:block;color:#365775;font-weight:700;line-height:1.25}
+  .visual-connector{height:32px;display:grid;place-items:center;color:var(--sf);font-size:1.3rem;font-weight:800}
+  .outcome-card{background:var(--navy);color:white;border-radius:20px;padding:17px 19px;position:relative;overflow:hidden}
+  .outcome-card:after{content:"";position:absolute;border:12px solid rgba(255,255,255,.05);height:140px;width:140px;border-radius:50%;right:-70px;top:-55px}
+  .outcome-card span{font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:#a6dbff;font-weight:850}
+  .outcome-card b{display:block;font-size:1.05rem;margin:6px 0 5px}
+  .outcome-card p{font-size:.73rem;color:#e0edfb;line-height:1.52;margin:0}
+  .visual-foot{margin-top:13px;color:#60758a;font-size:.69rem}
+  .stat-band{background:#fff;position:relative}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid #e1eaf1;padding-block:30px}
+  .stat{padding:3px 32px;border-right:1px solid #dce7ef;display:flex;align-items:center;gap:17px}
+  .stat:first-child{padding-left:0}.stat:last-child{border-right:0}
+  .stat strong{font-family:var(--display);font-size:2.45rem;font-weight:800;color:var(--navy);letter-spacing:-.065em;line-height:1.08;white-space:nowrap}
+  .stat span{color:#4f657e;font-size:.86rem;line-height:1.42}
+  .stat a{color:var(--sf);text-underline-offset:2px}
+  .section{padding-block:96px}
+  .section-heading{max-width:800px;margin-bottom:36px}
+  .section-heading h2{font-size:clamp(2rem,3.4vw,3.6rem);line-height:1.16;margin:13px 0 15px}
+  .section-heading p{font-size:1.04rem;line-height:1.7;color:var(--slate);margin:0;max-width:720px}
+  .hear{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .hear-card{padding:29px 31px;background:#f0f8ff;border-radius:24px;border:1px solid #e1effa;min-height:177px}
+  .hear-card:nth-child(2){background:#f5f2ff;border-color:#e9e0fa}
+  .hear-quote{font-size:1.2rem;line-height:1.45;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:13px 0 10px}
+  .hear-caption{font-size:.82rem;color:#566e82;margin:0}
+  .possibilities{background:#f4faff;border-block:1px solid #e6f0fb}
+  .possibility-layout{display:grid;grid-template-columns:345px 1fr;gap:27px;align-items:stretch}
+  .possibility-nav{display:flex;flex-direction:column;gap:12px}
+  .use-tab{background:#fff;border:1.5px solid #d9e8f5;border-radius:21px;padding:23px 22px;color:var(--navy);text-align:left;cursor:pointer}
+  .use-tab[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 12px 30px rgba(3,45,96,.12)}
+  .use-tab:hover:not([aria-selected="true"]){border-color:#80c7ed}
+  .tab-number{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#e3f3ff;color:var(--sf);font-weight:800;font-size:.73rem;margin-bottom:12px}
+  .use-tab[aria-selected="true"] .tab-number{background:#4da8ea;color:#fff}
+  .use-tab strong{font-family:var(--display);display:block;font-size:1.07rem;line-height:1.3;letter-spacing:-.036em}
+  .use-tab small{display:block;font-size:.78rem;line-height:1.5;color:#677a8f;margin-top:7px}
+  .use-tab[aria-selected="true"] small{color:#d4e8fb}
+  .use-panel{border-radius:25px;border:1px solid #dae7f1;background:#fff;box-shadow:0 12px 30px rgba(3,45,96,.05);padding:37px 39px;min-height:480px}
+  .concept-label{background:#eaf7ff;color:#165a83;font-weight:800;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border-radius:30px;padding:7px 12px;display:inline-block}
+  .use-panel h3{font-family:var(--display);font-size:clamp(1.6rem,2.4vw,2.5rem);line-height:1.2;letter-spacing:-.045em;color:var(--navy);margin:15px 0 12px;max-width:680px}
+  .use-panel p{color:#516980;font-size:.94rem;max-width:660px;line-height:1.65;margin:0}
+  .lane-title{margin-top:29px;margin-bottom:12px;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:#697c90;font-weight:850}
+  .lane{display:grid;grid-template-columns:1fr 23px 1fr 23px 1fr;align-items:center;gap:7px}
+  .lane-card{border-radius:15px;border:1px solid #dfedf7;background:#f6fbff;padding:17px 14px;min-height:112px}
+  .lane-card b{font-size:.78rem;color:var(--navy);line-height:1.38;display:block;margin-bottom:6px}
+  .lane-card span{font-size:.72rem;color:#5d7288;line-height:1.4;display:block}
+  .lane-arrow{color:var(--sf);font-size:1.4rem;font-weight:800;text-align:center}
+  .benefit{border-top:1px solid #e2eaf1;margin-top:23px;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .benefit b{font-size:.77rem;color:var(--navy)}
+  .benefit p{font-size:.78rem;margin-top:4px}
+  .simplify{margin-top:19px;color:#62778a;font-size:.78rem}
+  .lab-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:start}
+  .lab-intro h2{margin:12px 0 17px;font-size:clamp(2rem,3.5vw,3.3rem);line-height:1.17}
+  .lab-intro p{color:var(--slate);font-size:1.04rem;line-height:1.7;margin:0}
+  .lab-note{margin-top:22px;background:#eff8ff;padding:16px 18px;border-left:4px solid var(--sf);border-radius:0 15px 15px 0;color:#3f5d7a;font-size:.8rem;line-height:1.55}
+  .calculator{border-radius:25px;border:1px solid #dceaf5;padding:30px;background:white;box-shadow:var(--shadow)}
+  .calculator-top{display:flex;justify-content:space-between;gap:16px;align-items:center}
+  .calculator-top strong{font-family:var(--display);font-size:1.28rem;color:var(--navy);letter-spacing:-.04em}
+  .tiny-label{font-size:.68rem;color:#246083;font-weight:800;background:#e5f5ff;border-radius:40px;padding:7px 11px;white-space:nowrap}
+  .input-line{margin-top:22px}
+  .range-line{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+  .range-line label{font-size:.88rem;color:#355473;font-weight:750}
+  .range-line output{font-family:var(--display);font-weight:800;color:var(--navy);font-size:1.05rem}
+  input[type=range]{width:100%;accent-color:var(--sf);margin-top:14px;cursor:pointer}
+  .range-ends{display:flex;justify-content:space-between;font-size:.65rem;color:#8191a2}
+  .result{background:linear-gradient(116deg,#053971,#005eae);padding:22px;border-radius:21px;color:white;margin-top:25px}
+  .result-label{color:#cee8ff;font-size:.76rem;font-weight:750;line-height:1.4}
+  .result strong{font-family:var(--display);font-size:clamp(2.6rem,4vw,4rem);letter-spacing:-.06em;font-weight:850;line-height:1.1;display:block;margin:7px 0 4px}
+  .result small{font-size:.78rem;color:#d0e7fa}
+  .result-meter{height:9px;background:rgba(255,255,255,.25);border-radius:30px;overflow:hidden;margin:17px 0 9px}
+  #result-fill{display:block;height:100%;width:25%;background:#7aeac5;border-radius:30px;transition:width .15s}
+  .formula{color:#687a8b;font-size:.74rem;margin-top:13px;line-height:1.5}
+  .people{background:linear-gradient(120deg,#e4f6ff,#eaf4ff 52%,#f9efff);border-block:1px solid #e0ecf6}
+  .people-frame{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+  .people h2{font-size:clamp(2rem,3.4vw,3.5rem);line-height:1.18;margin:13px 0 17px}
+  .people p{color:#526b83;font-size:1rem;line-height:1.65;margin:0}
+  .people-box{background:#fff;border-radius:26px;border:1px solid #e0ebf6;box-shadow:0 15px 35px rgba(3,45,96,.08);padding:32px}
+  .persona-pills{display:flex;gap:8px;flex-wrap:wrap}
+  .persona{border-radius:50px;border:1.5px solid #d8e7f2;padding:9px 16px;background:white;color:var(--navy);font-size:.8rem;font-weight:800;cursor:pointer}
+  .persona[aria-pressed=true]{background:var(--sf);border-color:var(--sf);color:white}
+  .people-idea{font-family:var(--display);font-size:1.55rem;line-height:1.35;color:var(--navy);font-weight:800;letter-spacing:-.04em;margin:24px 0 13px;min-height:96px}
+  .people-sentence{font-size:.84rem;color:#5a7083}
+  .technology{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  .technology h2{font-size:clamp(2rem,3.2vw,3.25rem);line-height:1.17;margin:12px 0 16px}
+  .technology p{font-size:1rem;color:#5c7083;line-height:1.68;max-width:550px}
+  .tech-steps{border-radius:25px;background:#f2f9ff;border:1px solid #deedf9;padding:29px;display:grid;gap:14px}
+  .tech-step{background:#fff;border:1px solid #e0eaf5;border-radius:17px;padding:17px 20px;display:flex;gap:15px;align-items:center}
+  .tech-count{border-radius:50%;background:#deefff;color:#0568b5;display:grid;place-items:center;width:37px;height:37px;font-size:.88rem;font-weight:850;flex:0 0 auto}
+  .tech-step strong{font-size:.88rem;color:var(--navy);display:block}
+  .tech-step span{font-size:.77rem;color:#61768a;display:block;margin-top:3px}
+  details{border-bottom:1px solid #e0e8f0;padding:13px 0}
+  details summary{cursor:pointer;color:var(--navy);font-weight:780;font-size:.85rem;display:flex;justify-content:space-between;align-items:center;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary:after{content:'+';font-size:1.3rem;color:var(--sf);margin-left:15px}
+  details[open] summary:after{content:'−'}
+  details p{font-size:.78rem!important;line-height:1.6!important;margin-top:12px!important}
+  details a{color:var(--sf)}
+  .ending{background:var(--navy);color:white;overflow:hidden;position:relative}
+  .ending:after{content:"";position:absolute;width:530px;height:530px;border-radius:50%;border:105px solid rgba(106,191,255,.12);right:-205px;top:-180px;pointer-events:none}
+  .ending-inner{position:relative;z-index:1;text-align:center;padding-block:80px 85px;max-width:820px;margin:auto}
+  .ending .eyebrow{color:#92d7ff}
+  .ending h2{font-family:var(--display);font-size:clamp(2.3rem,4.2vw,4.4rem);letter-spacing:-.05em;line-height:1.14;margin:16px 0 18px;color:white}
+  .ending p{font-size:1.08rem;color:#d8ebfa;margin:0 auto;max-width:680px;line-height:1.65}
+  .ending .btn{background:white;color:var(--navy);margin-top:27px}
+  footer{background:#fff;border-top:1px solid #e6edf4;padding:26px 0}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .footer-note{font-size:.76rem;color:#718297;line-height:1.55}
+  .footer-inner strong{color:var(--navy);font-size:.78rem}
+  .footer-inner a{font-size:.76rem;text-decoration:underline;text-underline-offset:2px}
+  .foot-details{max-width:710px}
+  .foot-details p{font-size:.78rem;line-height:1.6;color:#627589}
+  .sources-list{margin:10px 0 0;padding-left:19px;font-size:.76rem;color:#4c6580;line-height:1.7}
+  .sources-list a{font-size:inherit}
+  @media(max-width:1010px){.hero-grid{gap:26px}.stat{padding-inline:18px}.stat strong{font-size:2rem}.possibility-layout{grid-template-columns:280px 1fr}.use-panel{padding:26px}.lane{grid-template-columns:1fr}.lane-arrow{transform:rotate(90deg)}.lane-card{min-height:0}.benefit{grid-template-columns:1fr}}
+  @media(max-width:780px){.shell{width:calc(100% - 40px)}.nav{min-height:69px}.navlinks>a:not(.navbutton){display:none}.brand-for{font-size:.72rem}.brand-name{font-size:1rem}.brand-cloud{width:40px;height:30px}.hero-grid{grid-template-columns:1fr;padding-block:65px 66px}.hero h1{font-size:clamp(2.5rem,8vw,3.7rem)}.hero p{font-size:1rem}.decision-visual{max-width:610px}.stats{grid-template-columns:1fr 1fr;gap:18px}.stat{padding:0 0 15px;border-right:0;border-bottom:1px solid #e6eef5}.stat:last-child{grid-column:1/-1;border-bottom:0}.section{padding-block:70px}.hear{grid-template-columns:1fr}.possibility-layout{grid-template-columns:1fr}.possibility-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.use-tab{padding:16px 13px}.use-tab strong{font-size:.9rem}.use-tab small{font-size:.67rem}.use-panel{min-height:0}.lab-grid,.people-frame,.technology{grid-template-columns:1fr;gap:28px}.footer-inner{align-items:flex-start;flex-direction:column}}
+  @media(max-width:520px){.shell{width:calc(100% - 32px)}.navlinks .navbutton{padding:9px 12px;font-size:.69rem}.brand-divider{display:none}.brand-for{font-size:.68rem}.brand{gap:7px}.hero-grid{padding-block:46px 55px}.hero h1{font-size:2.55rem}.hero-actions .btn{width:100%}.source-tiles{gap:5px}.source-tile{padding:10px 5px}.source-tile small{font-size:.61rem}.decision-visual{padding:16px}.stat strong{font-size:1.75rem}.stat span{font-size:.72rem}.section-heading h2{font-size:2.05rem}.hear-card{padding:22px}.hear-quote{font-size:1.07rem}.possibility-nav{grid-template-columns:1fr;gap:8px}.use-tab{display:grid;grid-template-columns:30px 1fr;column-gap:9px;padding:12px 14px}.tab-number{grid-row:span 2;margin:0}.use-tab strong{font-size:.86rem}.use-tab small{margin-top:2px}.use-panel{padding:24px 19px}.use-panel h3{font-size:1.75rem}.lane-card{padding:12px}.benefit{gap:8px}.calculator,.people-box{padding:21px}.calculator-top strong{font-size:1.05rem}.tiny-label{font-size:.6rem}.people-idea{font-size:1.26rem;min-height:0}.ending-inner{padding:65px 16px}.ending h2{font-size:2.35rem}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav shell" aria-label="Main navigation">
+    <a href="#top" class="brand" aria-label="Salesforce for SCL Lifesciences, back to top">
+      <span class="brand-cloud" aria-hidden="true"><svg viewBox="0 0 70 51" focusable="false"><path d="M21 47C9 47 3 41 3 31c0-9 7-16 16-17 4-9 12-13 20-11 7 1 12 5 16 11 8-1 15 6 15 15 0 10-7 18-18 18H21Z" fill="#0176d3"/></svg></span>
+      <span class="brand-name">salesforce</span><span class="brand-divider"></span><span class="brand-for">for SCL Lifesciences</span>
+    </a>
+    <div class="navlinks"><a href="#possibilities">The possibilities</a><a href="#value">Explore the impact</a><a href="#together" class="btn btn-primary navbutton">Let's explore <span aria-hidden="true">↗</span></a></div>
+  </nav>
+</header>
+<main>
+  <section class="hero" id="top">
+    <div class="shell hero-grid">
+      <div>
+        <span class="hero-kicker"><span class="spark"></span>A perspective for SCL's leadership</span>
+        <h1 class="display">What if the right answer was <span>already in your data?</span></h1>
+        <p>SCL has built the systems that run its business. Imagine connecting those signals so your teams can spot issues earlier, keep customer commitments on track and make decisions with greater confidence.</p>
+        <div class="hero-actions">
+          <a href="#possibilities" class="btn btn-primary">Explore 3 possibilities <span aria-hidden="true">→</span></a>
+          <a href="#value" class="btn btn-secondary">Play with the numbers <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="hero-small">Created around SCL's business and our conversations with your team.</p>
+      </div>
+      <div class="decision-visual" aria-label="Illustrative connected decision example">
+        <div class="visual-head"><strong>THE CONNECTED DECISION</strong><span class="visual-pill">Illustrative example</span></div>
+        <div class="visual-question">Can we confidently meet next week's commitments?</div>
+        <div class="source-tiles">
+          <div class="source-tile"><div class="source-icon">↗</div><small>Customer orders</small></div>
+          <div class="source-tile"><div class="source-icon">▤</div><small>Production plan</small></div>
+          <div class="source-tile"><div class="source-icon">✓</div><small>Available stock</small></div>
+        </div>
+        <div class="visual-connector" aria-hidden="true">↓</div>
+        <div class="outcome-card"><span>One clear view</span><b>What's on track? What needs attention?</b><p>Bring the relevant signals together, see the reason behind a change and decide the next action.</p></div>
+        <div class="visual-foot">A concept, not a live connection to SCL data.</div>
+      </div>
+    </div>
+  </section>
+  <div class="stat-band">
+    <div class="shell stats" aria-label="SCL public company facts">
+      <div class="stat"><strong>350 KL</strong><span>manufacturing capacity<br><a href="https://www.scllifesciences.com/about/company-at-a-glance/" target="_blank" rel="noopener noreferrer">SCL company profile ↗</a></span></div>
+      <div class="stat"><strong>2 sites</strong><span>manufacturing facilities near Chandigarh<br><a href="https://www.scllifesciences.com/about/company-at-a-glance/" target="_blank" rel="noopener noreferrer">SCL company profile ↗</a></span></div>
+      <div class="stat"><strong>30+ yrs</strong><span>in pharmaceutical manufacturing and development<br><a href="https://www.scllifesciences.com/cdmo-services/" target="_blank" rel="noopener noreferrer">SCL CDMO services ↗</a></span></div>
+    </div>
+  </div>
+
+  <section class="section shell" id="heard">
+    <div class="section-heading"><div class="eyebrow">Starting with what matters to SCL</div><h2 class="display">Keep what's working. <br>Make what's possible bigger.</h2><p>Our conversations with SCL's operations leaders pointed to two clear priorities: build on your homegrown ERP, and go beyond basic charts to insights that help people act.</p></div>
+    <div class="hear">
+      <div class="hear-card"><div class="eyebrow">From our conversations</div><div class="hear-quote">Make better use of the information already in your ERP.</div><p class="hear-caption">A theme from our operations discussions.</p></div>
+      <div class="hear-card"><div class="eyebrow">A shared ambition</div><div class="hear-quote">Move beyond basic charts to information that helps teams act.</div><p class="hear-caption">A theme from our operations discussions.</p></div>
+    </div>
+  </section>
+
+  <section class="section possibilities" id="possibilities">
+    <div class="shell">
+      <div class="section-heading"><div class="eyebrow">The art of possible</div><h2 class="display">Three ideas worth exploring.</h2><p>Not a list of products. Three practical ways the right information could help SCL's teams move faster and work better together.</p></div>
+      <div class="possibility-layout">
+        <div class="possibility-nav" role="tablist" aria-label="Explore use cases" aria-orientation="vertical">
+          <button class="use-tab" type="button" role="tab" id="tab-plant" aria-selected="true" aria-controls="use-panel" data-key="plant"><span class="tab-number">01</span><strong>Spot a plant issue early</strong><small>Manufacturing + supply chain</small></button>
+          <button class="use-tab" type="button" role="tab" id="tab-cdmo" aria-selected="false" aria-controls="use-panel" data-key="cdmo" tabindex="-1"><span class="tab-number">02</span><strong>Protect CDMO milestones</strong><small>Development + commercial teams</small></button>
+          <button class="use-tab" type="button" role="tab" id="tab-leadership" aria-selected="false" aria-controls="use-panel" data-key="leadership" tabindex="-1"><span class="tab-number">03</span><strong>Answer leadership questions</strong><small>One trusted business view</small></button>
+        </div>
+        <div class="use-panel" role="tabpanel" id="use-panel" aria-labelledby="tab-plant" tabindex="0">
+          <span class="concept-label">Possibility to explore</span>
+          <h3 id="use-head">Know sooner when a commitment needs attention.</h3>
+          <p id="use-description">Could a connected view of orders, production progress and inventory help teams notice potential delays earlier—and act before they become customer surprises?</p>
+          <div class="lane-title">Here's how the idea could work</div>
+          <div class="lane" aria-label="Illustrative workflow">
+            <div class="lane-card"><b id="lane1-title">Bring the signals together</b><span id="lane1-detail">Orders, material availability and production schedules</span></div>
+            <div class="lane-arrow" aria-hidden="true">→</div>
+            <div class="lane-card"><b id="lane2-title">Find what changed</b><span id="lane2-detail">Highlight a late material or slipped production stage</span></div>
+            <div class="lane-arrow" aria-hidden="true">→</div>
+            <div class="lane-card"><b id="lane3-title">Take the next step</b><span id="lane3-detail">Review impact and agree who acts next</span></div>
+          </div>
+          <div class="benefit"><div><b>What this could improve</b><p id="use-benefit">Earlier attention to potential dispatch risks.</p></div><div><b>Possible Salesforce role</b><p id="use-role">Tableau views built on selected, approved ERP and operational data.</p></div></div>
+        </div>
+      </div>
+      <p class="simplify">These are possibilities based on SCL's business and our discussions, not claims about current problems or guaranteed results.</p>
+    </div>
+  </section>
+
+  <section class="section shell" id="value">
+    <div class="lab-grid">
+      <div class="lab-intro"><div class="eyebrow">Try a simple example</div><h2 class="display">What could a little less reporting mean for your team?</h2><p>Imagine less time gathering numbers from different places—and more time understanding what they mean. Change the inputs to see how even a small shift can add up.</p><div class="lab-note"><strong>Just an example.</strong> The numbers start as sample inputs. They are not SCL's measured reporting hours, Salesforce benchmarks, cash savings or a forecast.</div></div>
+      <div class="calculator" aria-label="Interactive reporting effort example">
+        <div class="calculator-top"><strong>Time back for better decisions</strong><span class="tiny-label">Editable example</span></div>
+        <div class="input-line"><div class="range-line"><label for="team-size">People preparing weekly reports</label><output id="team-output" for="team-size">12</output></div><input id="team-size" type="range" min="2" max="40" step="1" value="12"><div class="range-ends"><span>2 people</span><span>40 people</span></div></div>
+        <div class="input-line"><div class="range-line"><label for="time-week">Hours each person spends per week</label><output id="hours-output" for="time-week">2 h</output></div><input id="time-week" type="range" min="0.5" max="8" step="0.5" value="2"><div class="range-ends"><span>0.5 h</span><span>8 h</span></div></div>
+        <div class="input-line"><div class="range-line"><label for="reduction">Possible cut in manual reporting time</label><output id="reduction-output" for="reduction">25%</output></div><input id="reduction" type="range" min="5" max="50" step="5" value="25"><div class="range-ends"><span>5%</span><span>50%</span></div></div>
+        <div class="result" aria-live="polite" aria-atomic="true"><div class="result-label">Illustrative time available for higher-value work</div><strong id="result-weekly">6 h/week</strong><small id="result-annual">That's 312 team-hours over 52 weeks</small><div class="result-meter" aria-hidden="true"><span id="result-fill"></span></div><small id="result-context">24 weekly hours today → 18 hours with this example change</small></div>
+        <div class="formula" id="formula">Formula: 12 people × 2 hours per week × 25% reduction = 6 hours per week. Recovered time does not automatically mean a reduction in costs.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section people" id="leadership">
+    <div class="shell people-frame">
+      <div><div class="eyebrow">One business. Different decisions.</div><h2 class="display">The right view for each leader.</h2><p>The same operational data can tell different stories depending on the decision someone needs to make.</p></div>
+      <div class="people-box"><div class="persona-pills" aria-label="Choose a leadership perspective"><button class="persona" type="button" data-persona="md" aria-pressed="true">Managing Director</button><button class="persona" type="button" data-persona="cbo" aria-pressed="false">Business Leader</button><button class="persona" type="button" data-persona="chro" aria-pressed="false">People Leader</button></div><div class="people-idea" id="people-idea" aria-live="polite">“Where do we need to pay attention today to protect tomorrow's delivery?”</div><div class="people-sentence" id="people-sub">A connected view of commitments, capacity and emerging issues.</div></div>
+    </div>
+  </section>
+
+  <section class="section shell" id="how">
+    <div class="technology">
+      <div><div class="eyebrow">Built around your systems</div><h2 class="display">Your ERP stays central. The view gets clearer.</h2><p>Salesforce Tableau can bring selected information into simple, interactive views. With trusted definitions and the right access, people can see trends, ask why something changed and focus on what to do next.</p><details><summary>How could this work technically?</summary><p>Start with approved ERP and spreadsheet data. Establish a consistent definition for each metric, refresh it at an agreed frequency and make it available through Tableau. Tableau Pulse can surface changes and drivers; conversational analytics depend on the selected Tableau product, data model, access controls and entitlements. Integration options would be decided with SCL's IT team. <a href="https://help.salesforce.com/s/articleView?id=000537232&amp;language=en_US&amp;type=1" target="_blank" rel="noopener noreferrer">About Tableau Pulse ↗</a></p></details></div>
+      <div class="tech-steps" aria-label="Conceptual data flow"><div class="tech-step"><div class="tech-count">1</div><div><strong>Your current ERP and other data</strong><span>Preserve systems already doing important work.</span></div></div><div class="tech-step"><div class="tech-count">2</div><div><strong>Tableau brings the right information together</strong><span>Simple views, consistent numbers and the reasons behind changes.</span></div></div><div class="tech-step"><div class="tech-count">3</div><div><strong>Your people decide what happens next</strong><span>Clearer priorities, with business judgement in control.</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="ending" id="together"><div class="shell ending-inner"><div class="eyebrow">The art of possible for SCL Lifesciences</div><h2>Which possibility would make the biggest difference at SCL?</h2><p>We'd love to explore these ideas with your leadership team in person—and show how the right information might make the next decision easier.</p><a class="btn" href="#possibilities">Revisit the three ideas <span aria-hidden="true">↑</span></a></div></section>
+</main>
+<footer>
+  <div class="shell footer-inner">
+    <div><strong>Salesforce × SCL Lifesciences</strong><div class="footer-note">A personalised perspective • Illustrative concepts, not production dashboards</div></div>
+    <div class="foot-details"><details><summary>Sources and example assumptions</summary><p>Company facts are from SCL's public sources. Use-case concepts reflect public context and approved conversations with SCL's operations leaders. Sample calculations are illustrative, adjustable and not a claim of SCL performance.</p><ul class="sources-list"><li><a target="_blank" rel="noopener noreferrer" href="https://www.scllifesciences.com/about/company-at-a-glance/">SCL company profile — sites and capacity ↗</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://www.scllifesciences.com/cdmo-services/">SCL CDMO services — 30+ years, operating model ↗</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://www.scllifesciences.com/about/leadership/">SCL leadership — in-house ERP context ↗</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://www.salesforce.com/in/customer-stories/dr-reddys-laboratories/">Salesforce — Dr. Reddy's use of Tableau and integrated data ↗</a></li><li><a target="_blank" rel="noopener noreferrer" href="https://help.salesforce.com/s/articleView?id=000537232&amp;language=en_US&amp;type=1">Salesforce — Tableau Pulse capabilities ↗</a></li></ul></details></div>
+  </div>
+</footer>
+<script>
+(function(){'use strict';
+  const cases={
+    plant:{head:'Know sooner when a commitment needs attention.',description:'Could a connected view of orders, production progress and inventory help teams notice potential delays earlier—and act before they become customer surprises?',steps:[['Bring the signals together','Orders, material availability and production schedules'],['Find what changed','Highlight a late material or slipped production stage'],['Take the next step','Review impact and agree who acts next']],benefit:'Earlier attention to potential dispatch risks.',role:'Tableau views built on selected, approved ERP and operational data.'},
+    cdmo:{head:'Give every CDMO project a clearer path forward.',description:'SCL describes a typical 12–14 month CDMO process. Imagine a shared view of milestones, approvals and production readiness so commercial, development and operations colleagues can see the same picture of each program.',steps:[['See the project journey','Milestones, owners and target dates'],['Spot a dependency','A pending approval or handover to scale-up'],['Keep the customer informed','Review next actions and revised dates together']],benefit:'Better visibility of customer milestones and handoffs.',role:'Tableau project views first; deeper customer workflows only if they add value.'},
+    leadership:{head:'See the number. Understand what changed. Decide what to do.',description:'What if leaders could move from a weekly spreadsheet pack to a consistent view of the measures they care about—with simple explanations of changes and the option to ask follow-up questions?',steps:[['Agree the measures','A small set of trusted operating KPIs'],['See what moved','Trends, unusual changes and main drivers'],['Focus the conversation','Discuss decisions instead of gathering reports']],benefit:'Less manual compilation and more time for decisions.',role:'Tableau dashboards and Pulse; optional AI features depend on setup and entitlements.'}
+  };
+  const tabs=Array.from(document.querySelectorAll('.use-tab'));
+  const id=x=>document.getElementById(x);
+  function selectCase(key,focus){const c=cases[key];if(!c)return;tabs.forEach(t=>{const active=t.dataset.key===key;t.setAttribute('aria-selected',active?'true':'false');t.tabIndex=active?0:-1;if(active&&focus)t.focus();});id('use-panel').setAttribute('aria-labelledby','tab-'+key);id('use-head').textContent=c.head;id('use-description').textContent=c.description;c.steps.forEach((v,i)=>{id('lane'+(i+1)+'-title').textContent=v[0];id('lane'+(i+1)+'-detail').textContent=v[1];});id('use-benefit').textContent=c.benefit;id('use-role').textContent=c.role;}
+  tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>selectCase(tab.dataset.key,false));tab.addEventListener('keydown',e=>{if(!['ArrowDown','ArrowUp','ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(index+((e.key==='ArrowDown'||e.key==='ArrowRight')?1:-1)+tabs.length)%tabs.length;selectCase(tabs[next].dataset.key,true);});});
+  const people={md:["“Where do we need to pay attention today to protect tomorrow's delivery?”","A connected view of commitments, capacity and emerging issues."],cbo:["“Which customer promise or development milestone needs our help next?”","A shared picture of project progress and customer commitments."],chro:["“How can our teams spend less time gathering reports and more time solving problems?”","Clear information, less repetitive work and better ways to share insights."]};
+  document.querySelectorAll('.persona').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.persona').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));id('people-idea').textContent=people[b.dataset.persona][0];id('people-sub').textContent=people[b.dataset.persona][1];}));
+  const inputs=[id('team-size'),id('time-week'),id('reduction')];
+  const fmt=n=>Number.isInteger(n)?n.toLocaleString('en-IN'):n.toLocaleString('en-IN',{maximumFractionDigits:1});
+  function recalc(){const n=+inputs[0].value,h=+inputs[1].value,r=+inputs[2].value,base=n*h,delta=base*r/100,remaining=base-delta;id('team-output').textContent=fmt(n);id('hours-output').textContent=fmt(h)+' h';id('reduction-output').textContent=r+'%';id('result-weekly').textContent=fmt(delta)+' h/week';id('result-annual').textContent="That's "+fmt(delta*52)+' team-hours over 52 weeks';id('result-context').textContent=fmt(base)+' weekly hours today → '+fmt(remaining)+' hours with this example change';id('result-fill').style.width=r+'%';id('formula').textContent='Formula: '+fmt(n)+' people × '+fmt(h)+' hours per week × '+r+'% reduction = '+fmt(delta)+' hours per week. Recovered time does not automatically mean a reduction in costs.';}
+  inputs.forEach(x=>x.addEventListener('input',recalc));recalc();
+})();
+</script>
+</body>
+</html>
